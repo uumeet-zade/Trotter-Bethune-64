@@ -62,19 +62,27 @@ body, html {
 }
 
 .party-logo {
-    height: 32px;
+    height: 40px;
     width: auto;
 }
 
 .campaign-wordmark {
-    height: 32px;
+    height: 48px;
     width: auto;
     max-width: 100%;
+    transform: scaleX(1.15);
+    transform-origin: left center;
+    margin-right: 20px; /* Compensate for visual stretch */
 }
 
 @media (min-width: 768px) {
+    .party-logo {
+        height: 48px;
+    }
     .campaign-wordmark {
-        height: 40px;
+        height: 64px;
+        transform: scaleX(1.25);
+        margin-right: 40px;
     }
 }
 
