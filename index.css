@@ -67,8 +67,15 @@ body, html {
 }
 
 .campaign-wordmark {
-    height: 48px;
+    height: 32px;
     width: auto;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .campaign-wordmark {
+        height: 40px;
+    }
 }
 
 .main-nav {
@@ -118,6 +125,9 @@ body, html {
     padding: 2rem;
     position: relative;
     z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -297,10 +307,13 @@ section {
 /* Manifesto Section */
 .section-manifesto {
     background-color: var(--obsidian);
+    display: flex;
+    justify-content: center;
 }
 
 .manifesto-content {
     max-width: 900px;
+    width: 100%;
 }
 
 .manifesto-list {
@@ -340,14 +353,21 @@ section {
 
 /* Ticket Section */
 .section-ticket {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    background-color: #111;
+    max-width: 1000px;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
-    .section-ticket {
+    .ticket-container {
         flex-direction: row;
         gap: 4rem;
     }
@@ -411,10 +431,13 @@ section {
 /* Mobilize Section */
 .section-mobilize {
     background-color: var(--obsidian);
+    display: flex;
+    justify-content: center;
 }
 
 .mobilize-container {
     max-width: 600px;
+    width: 100%;
 }
 
 .mobilize-desc {
