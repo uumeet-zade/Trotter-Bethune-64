@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trottier / Fayyad-Bethune '64</title>
     <meta name="description" content="The official 2064 presidential campaign website for Mandy Trottier and Safiya Fayyad-Bethune. The return is inevitable.">
-    <link rel="stylesheet" href="index.css?v=2.2">
+    <link rel="stylesheet" href="index.css?v=2.7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -23,8 +23,11 @@
             <a href="#ticket">THE TICKET</a>
             <a href="#mobilize">MOBILIZE</a>
         </nav>
-        <div class="countdown pulse">
-            ELECTION MINUS 143 DAYS
+        <div class="header-right">
+            <button id="themeToggle" class="theme-toggle-btn">MODE: OBSIDIAN</button>
+            <div class="countdown pulse">
+                ELECTION MINUS 143 DAYS
+            </div>
         </div>
     </header>
 
@@ -125,6 +128,34 @@
             document.getElementById('form-success').style.display = 'block';
         });
         
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'light') {
+                themeBtn.textContent = 'MODE: CONCRETE';
+            }
+        }
+
+        themeBtn.addEventListener('click', () => {
+            let targetTheme = 'light';
+            if (document.documentElement.getAttribute('data-theme') === 'light') {
+                targetTheme = 'dark';
+            }
+            
+            if (targetTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = 'MODE: CONCRETE';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                themeBtn.textContent = 'MODE: OBSIDIAN';
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

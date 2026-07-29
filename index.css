@@ -3,9 +3,25 @@
     --crimson: #C8102E;
     --steel: #2a2a2a;
     --text-light: #e0e0e0;
+    --ticket-bg: #111111;
+    --text-muted: #aaaaaa;
+    --nav-link: #888888;
+    --ray-flash: #ffffff;
+    --scanline-color: rgba(255, 255, 255, 0.06);
     
     --font-head: 'Anton', sans-serif;
     --font-mono: 'Space Mono', monospace;
+}
+
+[data-theme="light"] {
+    --obsidian: #e8e8e8;
+    --steel: #999999;
+    --text-light: #111111;
+    --ticket-bg: #d8d8d8;
+    --text-muted: #555555;
+    --nav-link: #444444;
+    --ray-flash: #111111;
+    --scanline-color: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -33,15 +49,14 @@ body, html {
     height: 100vh;
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0) 50%,
-        rgba(0,0,0,0.15) 50%,
-        rgba(0,0,0,0.15)
+        transparent,
+        transparent 50%,
+        var(--scanline-color) 50%,
+        var(--scanline-color)
     );
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 50;
-    opacity: 0.4;
 }
 
 /* Header */
@@ -98,7 +113,7 @@ body, html {
 }
 
 .main-nav a {
-    color: #888;
+    color: var(--nav-link);
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -123,6 +138,40 @@ body, html {
 @keyframes pulse-anim {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--steel);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--text-light);
+    color: var(--obsidian);
+    border-color: var(--text-light);
+}
+
+@media (min-width: 768px) {
+    .header-right {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
 }
 
 /* Hero Section */
@@ -177,7 +226,7 @@ body, html {
         110deg,
         transparent 15%,
         transparent 25%,
-        #ffffff 45%,
+        var(--ray-flash) 45%,
         var(--crimson) 55%,
         transparent 65%,
         transparent 85%
@@ -201,7 +250,7 @@ body, html {
 }
 
 .manifesto-intro {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.6;
     max-width: 500px;
@@ -361,7 +410,7 @@ section {
 
 /* Ticket Section */
 .section-ticket {
-    background-color: #111;
+    background-color: var(--ticket-bg);
     display: flex;
     justify-content: center;
 }
@@ -418,7 +467,7 @@ section {
 }
 
 .dossier-body {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -449,7 +498,7 @@ section {
 }
 
 .mobilize-desc {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 1.125rem;
     margin: 0 0 2rem 0;
     line-height: 1.6;
