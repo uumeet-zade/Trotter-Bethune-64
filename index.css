@@ -49,7 +49,7 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     border-bottom: 2px solid var(--steel);
     position: relative;
     z-index: 10;
@@ -62,13 +62,13 @@ body, html {
 }
 
 .party-logo {
-    height: 40px;
+    height: 32px;
     width: auto;
 }
 
 .wordmark {
     font-family: var(--font-head);
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.2em;
     color: var(--crimson);
 }
@@ -117,7 +117,7 @@ body, html {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 3rem 2rem;
+    padding: 2rem;
     position: relative;
     z-index: 10;
 }
@@ -126,7 +126,7 @@ body, html {
     .hero {
         flex-direction: row;
         align-items: center;
-        padding: 4rem;
+        padding: 2rem 4rem;
     }
 }
 
@@ -154,8 +154,8 @@ body, html {
     font-family: var(--font-head);
     text-transform: uppercase;
     line-height: 0.9;
-    font-size: 4rem;
-    margin: 0 0 1.5rem 0;
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
     background-color: var(--steel);
     background-image: linear-gradient(
         110deg,
@@ -175,12 +175,12 @@ body, html {
 
 @media (min-width: 768px) {
     .ray-text {
-        font-size: 5rem;
+        font-size: 4.5rem;
     }
 }
 @media (min-width: 1024px) {
     .ray-text {
-        font-size: 7rem;
+        font-size: 5.5rem;
     }
 }
 
@@ -189,7 +189,7 @@ body, html {
     font-size: 1rem;
     line-height: 1.6;
     max-width: 500px;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 1.5rem 0;
     border-left: 4px solid var(--crimson);
     padding-left: 1rem;
 }
@@ -201,8 +201,8 @@ body, html {
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 2px solid transparent;
-    padding: 1.2rem 2.5rem;
-    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
     cursor: pointer;
     transition: all 0.1s;
     align-self: flex-start;
@@ -226,7 +226,7 @@ body, html {
 .portrait-container {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 380px;
     border: 4px solid var(--steel);
 }
 
