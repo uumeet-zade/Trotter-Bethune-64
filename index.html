@@ -16,12 +16,12 @@
     <header class="site-header">
         <div class="logo-container">
             <img src="ALPLogo.png" alt="Alternative Labour Party Logo" class="party-logo">
-            <div class="wordmark">TROTTIER 64</div>
+            <img src="campaign_logo.svg" alt="Trottier Bethune '64 Logo" class="campaign-wordmark">
         </div>
         <nav class="main-nav">
             <a href="#manifesto">THE MANIFESTO</a>
             <a href="#ticket">THE TICKET</a>
-            <a href="#enforcement">ENFORCEMENT</a>
+            <a href="#mobilize">MOBILIZE</a>
         </nav>
         <div class="countdown pulse">
             ELECTION MINUS 143 DAYS
@@ -48,6 +48,60 @@
         </div>
     </main>
 
+    <section id="manifesto" class="section-manifesto">
+        <div class="manifesto-content">
+            <h2 class="section-title">THE MANIFESTO</h2>
+            <ul class="manifesto-list">
+                <li><span class="bullet"></span> The 2060 administration broke their promise. We are here to collect.</li>
+                <li><span class="bullet"></span> Order must be restored through uncompromising leadership.</li>
+                <li><span class="bullet"></span> Economic stability is a non-negotiable mandate.</li>
+                <li><span class="bullet"></span> Mandy Trottier's return is the inevitable, only path forward.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="ticket" class="section-ticket">
+        <div class="dossier">
+            <div class="dossier-header">PRESIDENTIAL CANDIDATE</div>
+            <div class="dossier-name">MANDY TROTTIER</div>
+            <div class="dossier-body">
+                <p>Former President.</p>
+                <p>The loss was a betrayal of the movement. This campaign demands total restoration and fulfills the hardline mandate of the Alternative Labour Party.</p>
+            </div>
+        </div>
+        <div class="dossier">
+            <div class="dossier-header">VICE PRESIDENTIAL CANDIDATE</div>
+            <div class="dossier-name">SAFIYA FAYYAD-BETHUNE</div>
+            <div class="dossier-body">
+                <p>The strategist. The enforcer.</p>
+                <p>Fayyad-Bethune brings the necessary tactical aggression to ensure the Trottier doctrine is implemented without hesitation or compromise.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="mobilize" class="section-mobilize">
+        <div class="mobilize-container">
+            <h2 class="section-title">MOBILIZE</h2>
+            <p class="mobilize-desc">Commit your support to the campaign. We require discipline and absolute dedication.</p>
+            <form id="mobilize-form" class="mobilize-form">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder="FULL NAME" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="EMAIL ADDRESS" required>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="location" placeholder="SECTOR / CITY" required>
+                </div>
+                <button type="submit" class="brutal-btn submit-btn">COMMIT SUPPORT</button>
+            </form>
+            <div id="form-success" class="form-success" style="display: none;">
+                <div class="success-message">COMMITMENT RECEIVED.</div>
+                <div class="success-sub">STAND BY FOR INSTRUCTIONS.</div>
+            </div>
+        </div>
+    </section>
+
     <div class="ticker-wrap">
         <div class="ticker">
             <span class="ticker-item">THE RETURN IS INEVITABLE</span>
@@ -60,5 +114,24 @@
             <span class="ticker-item">THE 2060 EXPERIMENT FAILED</span>
         </div>
     </div>
+
+    <script>
+        document.getElementById('mobilize-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Hide form and show success message
+            this.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

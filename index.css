@@ -66,11 +66,9 @@ body, html {
     width: auto;
 }
 
-.wordmark {
-    font-family: var(--font-head);
-    font-size: 1.5rem;
-    letter-spacing: 0.2em;
-    color: var(--crimson);
+.campaign-wordmark {
+    height: 48px;
+    width: auto;
 }
 
 .main-nav {
@@ -268,6 +266,212 @@ body, html {
     font-family: var(--font-head);
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
+}
+
+/* General Section Styles */
+section {
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 10;
+    border-top: 2px solid var(--steel);
+}
+
+.section-title {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    color: var(--crimson);
+    margin: 0 0 2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 6rem 4rem;
+    }
+    .section-title {
+        font-size: 4.5rem;
+    }
+}
+
+/* Manifesto Section */
+.section-manifesto {
+    background-color: var(--obsidian);
+}
+
+.manifesto-content {
+    max-width: 900px;
+}
+
+.manifesto-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.manifesto-list li {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--text-light);
+}
+
+.manifesto-list li .bullet {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--crimson);
+}
+
+@media (min-width: 768px) {
+    .manifesto-list li {
+        font-size: 1.75rem;
+    }
+    .manifesto-list li .bullet {
+        top: 14px;
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Ticket Section */
+.section-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: #111;
+}
+
+@media (min-width: 768px) {
+    .section-ticket {
+        flex-direction: row;
+        gap: 4rem;
+    }
+}
+
+.dossier {
+    flex: 1;
+    border: 4px solid var(--steel);
+    padding: 2rem;
+    position: relative;
+    background-color: var(--obsidian);
+}
+
+.dossier::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 30px;
+    height: 30px;
+    border-top: 4px solid var(--crimson);
+    border-left: 4px solid var(--crimson);
+}
+
+.dossier-header {
+    color: var(--crimson);
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.dossier-name {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.dossier-body {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.dossier-body p {
+    margin: 0 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .dossier-name {
+        font-size: 3.5rem;
+    }
+    .dossier-body {
+        font-size: 1.125rem;
+    }
+}
+
+/* Mobilize Section */
+.section-mobilize {
+    background-color: var(--obsidian);
+}
+
+.mobilize-container {
+    max-width: 600px;
+}
+
+.mobilize-desc {
+    color: #aaa;
+    font-size: 1.125rem;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+}
+
+.mobilize-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid var(--steel);
+    color: var(--text-light);
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--crimson);
+    background-color: rgba(200, 16, 46, 0.05);
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.form-success {
+    border: 4px solid var(--crimson);
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(200, 16, 46, 0.1);
+}
+
+.success-message {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    color: var(--crimson);
+    margin-bottom: 0.5rem;
+}
+
+.success-sub {
+    font-family: var(--font-mono);
+    color: var(--text-light);
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
 
 /* Ticker */
