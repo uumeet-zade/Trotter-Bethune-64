@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caprica 2064 - Trottier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        :root {
+            --obsidian: #0a0a0a;
+            --crimson: #C8102E; /* Deep, aggressive red */
+            --steel: #2a2a2a;
+            --text-light: #e0e0e0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--obsidian);
+            color: var(--text-light);
+            font-family: 'Space Mono', monospace; /* Monospaced for military/data feel */
+            overflow-x: hidden;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.1)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.3;
+        }
+
+        @keyframes sweep {
+            0% {
+                background-position: 200% center;
+            }
+            100% {
+                background-position: -200% center;
+            }
+        }
+
+        .ray-text {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+            /* The base color is dark steel */
+            background-color: var(--steel);
+            /* The gradient is the 'ray' passing over */
+            background-image: linear-gradient(
+                110deg,
+                transparent 15%,
+                transparent 25%,
+                #ffffff 45%, /* The intense white core of the ray */
+                var(--crimson) 55%, /* The trailing red edge */
+                transparent 65%,
+                transparent 85%
+            );
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            /* Synchronize this animation with the glasses */
+            animation: sweep 4s linear infinite;
+        }
+
+        .candidate-portrait-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            /* A stark border to box her in */
+            border: 4px solid var(--steel);
+        }
+
+        .candidate-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(100%) contrast(120%);
+        }
+
+        /* The simulated sunglass reflection overlay */
+        .sunglass-ray {
+            position: absolute;
+            top: 30%; /* Approximate position of eyes/sunglasses */
+            left: 0;
+            width: 100%;
+            height: 40px; /* Height of the lens flare */
+            background: linear-gradient(
+                110deg,
+                transparent 15%,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.8) 45%,
+                rgba(200, 16, 46, 0.6) 55%, /* Trailing crimson */
+                rgba(255, 255, 255, 0) 70%,
+                transparent 85%
+            );
+            background-size: 200% auto;
+            /* Must match the animation timing of the text exactly */
+            animation: sweep 4s linear infinite;
+            pointer-events: none;
+            mix-blend-mode: overlay; /* Helps it look like light on glass */
+            transform: skewY(-5deg); /* Slight angle for attitude */
+        }
+
+        .brutal-btn {
+            background-color: var(--crimson);
+            color: white;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0s; /* Snappy, no smooth transitions */
+            border: 2px solid transparent;
+        }
+        
+        .brutal-btn:hover {
+            background-color: var(--obsidian);
+            color: var(--crimson);
+            border-color: var(--crimson);
+            letter-spacing: 6px; /* Aggressive expansion on hover */
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--crimson);
+            color: var(--obsidian);
+            white-space: nowrap;
+            border-top: 2px solid var(--steel);
+            border-bottom: 2px solid var(--steel);
+        }
+
+        .ticker {
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            padding: 10px 0;
+            animation: ticker 15s linear infinite;
+        }
+        
+        .ticker-item {
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <div class="scanlines"></div>
+
+    <nav class="w-full flex justify-between items-center p-6 border-b-2 border-[#2a2a2a] relative z-10">
+        <div class="font-['Anton'] text-3xl tracking-widest text-[#C8102E]">TROTTIER 64</div>
+        <div class="hidden md:flex space-x-8 text-sm font-bold tracking-widest text-gray-500">
+            <a href="#" class="hover:text-white transition-colors">THE MANIFESTO</a>
+            <a href="#" class="hover:text-white transition-colors">THE TICKET</a>
+            <a href="#" class="hover:text-white transition-colors">ENFORCEMENT</a>
+        </div>
+        <div class="text-xs text-[#C8102E] animate-pulse">
+            ELECTION MINUS 143 DAYS
+        </div>
+    </nav>
+
+    <main class="flex-grow flex flex-col md:flex-row items-center justify-center p-8 md:p-16 relative z-10">
+        
+        <!-- Left Side: Typography -->
+        <div class="w-full md:w-1/2 flex flex-col items-start justify-center pr-0 md:pr-12 mb-12 md:mb-0">
+            <!-- The Sweeping Ray Text -->
+            <h1 class="ray-text text-6xl md:text-8xl lg:text-[7rem] mb-6">
+                THEY TOOK YOUR FUTURE.
+                <br>
+                WE ARE TAKING IT BACK.
+            </h1>
+            
+            <p class="text-gray-400 text-sm md:text-base max-w-lg mb-10 leading-relaxed border-l-4 border-[#C8102E] pl-4">
+                The 2060 administration is a catastrophic failure. Order must be restored to Caprica. The return is inevitable. Mandy Trottier and Safiya Fayyad-Bethune demand your allegiance.
+            </p>
+
+            <button class="brutal-btn px-10 py-5 text-2xl w-full md:w-auto text-center">
+                DECLARE LOYALTY
+            </button>
+        </div>
+
+        <!-- Right Side: The Portrait -->
+        <div class="w-full md:w-1/2 flex justify-center items-center">
+            <div class="candidate-portrait-container">
+                <!-- Using a placeholder image that looks like a stern woman in profile/glasses -->
+                <img src="https://images.unsplash.com/photo-1542322301-44754eb27a20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mandy Trottier" class="candidate-image">
+                <!-- The synchronized ray overlay -->
+                <div class="sunglass-ray"></div>
+                
+                <!-- Ominous nametag -->
+                <div class="absolute bottom-0 right-0 bg-[#C8102E] text-black font-['Anton'] text-xl px-4 py-2">
+                    M. TROTTIER
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="ticker-wrap relative z-10 mt-auto">
+        <div class="ticker">
+            <span class="ticker-item">THE RETURN IS INEVITABLE</span>
+            <span class="ticker-item">RESTORE CAPRICA</span>
+            <span class="ticker-item">NO COMPROMISE</span>
+            <span class="ticker-item">THE 2060 EXPERIMENT FAILED</span>
+            <!-- Duplicated for seamless looping -->
+            <span class="ticker-item">THE RETURN IS INEVITABLE</span>
+            <span class="ticker-item">RESTORE CAPRICA</span>
+            <span class="ticker-item">NO COMPROMISE</span>
+            <span class="ticker-item">THE 2060 EXPERIMENT FAILED</span>
+        </div>
+    </div>
+
+</body>
+</html>
