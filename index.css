@@ -7,7 +7,7 @@
     --text-muted: #aaaaaa;
     --nav-link: #888888;
     --ray-flash: #ffffff;
-    --scanline-color: rgba(255, 255, 255, 0.06);
+    --scanline-color: rgba(255, 255, 255, 0.09);
 
     /* Radical Button System */
     --btn-primary-bg: #e8e8e8; /* Concrete color on Obsidian mode */
