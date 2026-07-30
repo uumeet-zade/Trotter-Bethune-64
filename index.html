@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trottier / Fayyad-Bethune '64</title>
     <meta name="description" content="The official 2064 presidential campaign website for Mandy Trottier and Safiya Fayyad-Bethune. The return is inevitable.">
-    <link rel="stylesheet" href="index.css?v=2.7">
+    <link rel="stylesheet" href="index.css?v=3.3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,7 +16,35 @@
     <header class="site-header">
         <div class="logo-container">
             <img src="ALPLogo.png" alt="Alternative Labour Party Logo" class="party-logo">
-            <img src="campaign_logo.svg" alt="Trottier Bethune '64 Logo" class="campaign-wordmark">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%" class="campaign-wordmark" aria-label="Trottier Bethune '64 Logo">
+                <defs>
+                    <style>
+                        .brutal-title { font-family: 'Anton', sans-serif; font-size: 210px; text-transform: uppercase; letter-spacing: -2px; fill: var(--text-light); }
+                        .brutal-subtitle { font-family: 'Anton', sans-serif; font-size: 210px; text-transform: uppercase; letter-spacing: -2px; fill: var(--obsidian); }
+                        .brutal-year { font-family: 'Space Mono', monospace; font-size: 220px; font-weight: bold; letter-spacing: -12px; fill: var(--obsidian); }
+                        .logo-crimson { fill: var(--crimson); }
+                        .logo-bg { fill: var(--text-light); }
+                    </style>
+                </defs>
+
+                <!-- Massive red block on the left -->
+                <rect x="0" y="0" width="350" height="400" class="logo-crimson" />
+                
+                <!-- White/Black background block for the subtitle to create stark contrast -->
+                <rect x="350" y="200" width="850" height="200" class="logo-bg" />
+
+                <!-- 64 inside the red block -->
+                <text x="175" y="280" class="brutal-year" text-anchor="middle">64</text>
+
+                <!-- TROTTIER in the top half (Dark background of the page shows through, so text needs to be light) -->
+                <text x="380" y="190" class="brutal-title" text-anchor="start">TROTTIER</text>
+
+                <!-- BETHUNE in the bottom half (Light background block, so text needs to be dark) -->
+                <text x="380" y="390" class="brutal-subtitle" text-anchor="start">BETHUNE</text>
+
+                <!-- Vertical harsh separator line -->
+                <rect x="350" y="0" width="16" height="400" fill="var(--text-light)" />
+            </svg>
         </div>
         <nav class="main-nav">
             <a href="#manifesto">THE MANIFESTO</a>
@@ -24,7 +52,7 @@
             <a href="#mobilize">MOBILIZE</a>
         </nav>
         <div class="header-right">
-            <button id="themeToggle" class="theme-toggle-btn">MODE: OBSIDIAN</button>
+            <button id="themeToggle" class="btn-secondary">MODE: OBSIDIAN</button>
             <div class="countdown pulse">
                 ELECTION MINUS 143 DAYS
             </div>
@@ -40,7 +68,7 @@
             <p class="manifesto-intro">
                 The 2060 administration is a catastrophic failure. Order must be restored. The return is inevitable. Mandy Trottier will finish what she started.
             </p>
-            <button class="brutal-btn">COMMIT TO THE RETURN</button>
+            <button class="btn-primary">COMMIT TO THE RETURN <span style="font-family:var(--font-mono)">→</span></button>
         </div>
         <div class="hero-visual">
             <div class="portrait-container">
@@ -98,7 +126,7 @@
                 <div class="input-group">
                     <input type="text" id="location" placeholder="SECTOR / CITY" required>
                 </div>
-                <button type="submit" class="brutal-btn submit-btn">COMMIT SUPPORT</button>
+                <button type="submit" class="btn-primary submit-btn">COMMIT SUPPORT <span style="font-family:var(--font-mono)">→</span></button>
             </form>
             <div id="form-success" class="form-success" style="display: none;">
                 <div class="success-message">COMMITMENT RECEIVED.</div>

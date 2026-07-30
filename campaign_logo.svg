@@ -1,49 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%" class="campaign-wordmark" aria-label="Trottier Bethune '64 Logo">
     <defs>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono:wght@400;700&amp;display=swap');
-            .text-main { font-family: 'Anton', sans-serif; fill: #e0e0e0; font-size: 160px; letter-spacing: 12px; }
-            .text-shadow { font-family: 'Anton', sans-serif; fill: #C8102E; font-size: 160px; letter-spacing: 12px; opacity: 0.6; }
-            .text-sub { font-family: 'Anton', sans-serif; fill: #b0b0b0; font-size: 110px; letter-spacing: 18px; }
-            .year { font-family: 'Anton', sans-serif; fill: #0a0a0a; font-size: 110px; letter-spacing: 4px; }
-            .crimson { fill: #C8102E; }
-            .steel { fill: #2a2a2a; }
-            .steel-stroke { stroke: #2a2a2a; stroke-width: 5; fill: none; }
-            .crimson-stroke { stroke: #C8102E; stroke-width: 2; fill: none; }
-            .grid-line { stroke: #2a2a2a; stroke-width: 1; opacity: 0.5; }
+            @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap');
+            
+            /* Fallback variables so the SVG renders when viewed by itself */
+            :root {
+                --text-light: #e0e0e0;
+                --obsidian: #0a0a0a;
+                --crimson: #C8102E;
+            }
+
+            .brutal-title { font-family: 'Anton', sans-serif; font-size: 210px; text-transform: uppercase; letter-spacing: -2px; fill: var(--text-light); }
+            .brutal-subtitle { font-family: 'Anton', sans-serif; font-size: 210px; text-transform: uppercase; letter-spacing: -2px; fill: var(--obsidian); }
+            .brutal-year { font-family: 'Space Mono', monospace; font-size: 220px; font-weight: bold; letter-spacing: -12px; fill: var(--obsidian); }
+            .logo-crimson { fill: var(--crimson); }
+            .logo-bg { fill: var(--text-light); }
         </style>
     </defs>
 
-    <!-- Subtle Background Grid for "Tech" feel -->
-    <line x1="0" y1="200" x2="1000" y2="200" class="grid-line" />
-    <line x1="500" y1="0" x2="500" y2="400" class="grid-line" />
-
-    <!-- Corner Brackets -->
-    <path d="M 40,80 L 40,40 L 80,40" class="steel-stroke"/>
-    <path d="M 960,80 L 960,40 L 920,40" class="steel-stroke"/>
-    <path d="M 40,320 L 40,360 L 80,360" class="steel-stroke"/>
-    <path d="M 960,320 L 960,360 L 920,360" class="steel-stroke"/>
-
-    <!-- TROTTIER with offset drop shadow effect for aggression -->
-    <text x="500" y="175" class="text-shadow" text-anchor="middle" transform="translate(5, 5)">TROTTIER</text>
-    <text x="500" y="175" class="text-main" text-anchor="middle">TROTTIER</text>
-
-    <!-- Futuristic fragmented divider bar -->
-    <rect x="70" y="200" width="620" height="24" class="crimson"/>
-    <rect x="700" y="200" width="20" height="24" class="crimson"/>
-    <rect x="730" y="200" width="200" height="24" class="crimson"/>
-
-    <!-- BETHUNE -->
-    <text x="70" y="335" class="text-sub" text-anchor="start">BETHUNE</text>
-
-    <!-- 64 Element: Angled Parallelogram -->
-    <polygon points="730,235 930,235 910,350 710,350" class="crimson"/>
+    <!-- Massive red block on the left -->
+    <rect x="0" y="0" width="350" height="400" class="logo-crimson" />
     
-    <!-- 64 Text -->
-    <text x="820" y="335" class="year" text-anchor="middle">'64</text>
+    <!-- White/Black background block for the subtitle to create stark contrast -->
+    <rect x="350" y="200" width="850" height="200" class="logo-bg" />
 
-    <!-- Bottom accents -->
-    <line x1="70" y1="360" x2="300" y2="360" class="crimson-stroke"/>
-    <circle cx="70" cy="360" r="4" class="crimson"/>
-    <circle cx="300" cy="360" r="4" class="crimson"/>
+    <!-- 64 inside the red block -->
+    <text x="175" y="280" class="brutal-year" text-anchor="middle">64</text>
+
+    <!-- TROTTIER in the top half -->
+    <text x="380" y="190" class="brutal-title" text-anchor="start">TROTTIER</text>
+
+    <!-- BETHUNE in the bottom half -->
+    <text x="380" y="390" class="brutal-subtitle" text-anchor="start">BETHUNE</text>
+
+    <!-- Vertical harsh separator line -->
+    <rect x="350" y="0" width="16" height="400" fill="var(--text-light)" />
 </svg>
