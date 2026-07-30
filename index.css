@@ -8,6 +8,7 @@
     --nav-link: #888888;
     --ray-flash: #ffffff;
     --scanline-color: rgba(255, 255, 255, 0.09);
+    --crt-scanline-size: 12px;
 
     /* Radical Button System */
     --btn-primary-bg: #e8e8e8; /* Concrete color on Obsidian mode */
@@ -32,6 +33,7 @@
     --nav-link: #444444;
     --ray-flash: #111111;
     --scanline-color: rgba(0, 0, 0, 0.1);
+    --crt-scanline-size: 6px;
 
     /* Radical Button System (Light) */
     --btn-primary-bg: #0a0a0a; /* Obsidian color on Concrete mode */
@@ -69,14 +71,45 @@ body, html {
     height: 100vh;
     background: linear-gradient(
         to bottom,
-        transparent,
-        transparent 50%,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
         var(--scanline-color) 50%,
         var(--scanline-color)
     );
     background-size: 100% 4px;
     pointer-events: none;
-    z-index: 50;
+    z-index: 9999;
+}
+
+/* CRT Demo Mode Styles */
+[data-crt="true"] {
+    text-shadow: 2px 0px 1px rgba(255,0,0,0.5), -2px 0px 1px rgba(0,255,255,0.5);
+}
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+    display: none;
+}
+
+[data-crt="true"] .crt-overlay {
+    display: block;
+    background: radial-gradient(circle, rgba(0,0,0,0) 55%, rgba(0,0,0,0.7) 100%);
+}
+
+[data-crt="true"] .scanlines {
+    animation: scanline-roll 4s linear infinite;
+    background-size: 100% var(--crt-scanline-size);
+}
+
+@keyframes scanline-roll {
+    from { background-position: 0 1200px; }
+    to { background-position: 0 0; }
 }
 
 /* Header */

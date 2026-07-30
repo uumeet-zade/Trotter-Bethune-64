@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trottier / Fayyad-Bethune '64</title>
     <meta name="description" content="The official 2064 presidential campaign website for Mandy Trottier and Safiya Fayyad-Bethune. The return is inevitable.">
-    <link rel="stylesheet" href="index.css?v=3.7">
+    <link rel="stylesheet" href="index.css?v=4.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="scanlines"></div>
+    <div class="crt-overlay"></div>
 
     <header class="site-header">
         <div class="logo-container">
@@ -53,6 +54,7 @@
         </nav>
         <div class="header-right">
             <button id="themeToggle" class="btn-secondary">MODE: OBSIDIAN</button>
+            <button id="demoToggle" class="btn-secondary">DEMO: OFF</button>
             <div class="countdown pulse">
                 ELECTION MINUS 143 DAYS
             </div>
@@ -182,6 +184,14 @@
                 localStorage.setItem('theme', 'dark');
                 themeBtn.textContent = 'MODE: OBSIDIAN';
             }
+        });
+
+        // Demo Toggle Logic
+        const demoBtn = document.getElementById('demoToggle');
+        demoBtn.addEventListener('click', () => {
+            const isCrt = document.body.getAttribute('data-crt') === 'true';
+            document.body.setAttribute('data-crt', isCrt ? 'false' : 'true');
+            demoBtn.textContent = isCrt ? 'DEMO: OFF' : 'DEMO: ON';
         });
 
         // Smooth scrolling for navigation links
