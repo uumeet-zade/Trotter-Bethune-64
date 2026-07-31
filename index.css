@@ -82,8 +82,16 @@ body, html {
 }
 
 /* CRT Demo Mode Styles */
-[data-crt="true"] {
+[data-crt="true"] .ray-text,
+[data-crt="true"] .section-title,
+[data-crt="true"] .dossier-name {
     text-shadow: 2px 0px 1px rgba(255,0,0,0.5), -2px 0px 1px rgba(0,255,255,0.5);
+}
+
+[data-theme="light"] [data-crt="true"] .ray-text,
+[data-theme="light"] [data-crt="true"] .section-title,
+[data-theme="light"] [data-crt="true"] .dossier-name {
+    text-shadow: 3px 0px 1px rgba(255,0,0,0.7), -3px 0px 1px rgba(0,255,255,0.7);
 }
 
 .crt-overlay {
@@ -307,24 +315,10 @@ body, html {
     font-family: var(--font-head);
     font-weight: normal;
     text-transform: uppercase;
-    line-height: 0.9;
+    line-height: 1.05;
     font-size: 3rem;
     margin: 0 0 1rem 0;
-    background-image: linear-gradient(
-        110deg,
-        var(--steel) 0%,
-        var(--steel) 30%,
-        var(--ray-flash) 45%,
-        var(--crimson) 55%,
-        var(--steel) 70%,
-        var(--steel) 100%
-    );
-    background-size: 200% auto;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: sweep 4s linear infinite;
+    color: var(--crimson);
 }
 
 @media (min-width: 768px) {
