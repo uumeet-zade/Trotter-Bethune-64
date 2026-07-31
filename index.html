@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trottier / Fayyad-Bethune '64</title>
     <meta name="description" content="The official 2064 presidential campaign website for Mandy Trottier and Safiya Fayyad-Bethune. The return is inevitable.">
-    <link rel="stylesheet" href="index.css?v=4.1">
+    <link rel="stylesheet" href="index.css?v=4.9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-crt="true">
     <div class="scanlines"></div>
     <div class="crt-overlay"></div>
 
@@ -53,8 +53,8 @@
             <a href="#mobilize">MOBILIZE</a>
         </nav>
         <div class="header-right">
-            <button id="themeToggle" class="btn-secondary">MODE: OBSIDIAN</button>
-            <button id="demoToggle" class="btn-secondary">DEMO: OFF</button>
+            <button id="themeToggle" class="btn-secondary">MODE: CONCRETE</button>
+            <button id="analogToggle" class="btn-secondary">ANALOG: ON</button>
             <div class="countdown pulse">
                 ELECTION MINUS 143 DAYS
             </div>
@@ -74,7 +74,7 @@
         </div>
         <div class="hero-visual">
             <div class="portrait-container">
-                <img src="https://images.unsplash.com/photo-1542322301-44754eb27a20?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mandy Trottier Candidate Portrait" class="candidate-image">
+                <img src="mandyfuckingtrottier-nobg.png" alt="Mandy Trottier Candidate Portrait" class="candidate-image">
                 <div class="sunglass-ray"></div>
                 <div class="nametag">M. TROTTIER</div>
             </div>
@@ -162,36 +162,51 @@
         const themeBtn = document.getElementById('themeToggle');
         const currentTheme = localStorage.getItem('theme');
 
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'light') {
-                themeBtn.textContent = 'MODE: CONCRETE';
-            }
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            themeBtn.textContent = 'MODE: OBSIDIAN';
+        } else {
+            // Default to light
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeBtn.textContent = 'MODE: CONCRETE';
         }
 
         themeBtn.addEventListener('click', () => {
-            let targetTheme = 'light';
             if (document.documentElement.getAttribute('data-theme') === 'light') {
-                targetTheme = 'dark';
-            }
-            
-            if (targetTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeBtn.textContent = 'MODE: CONCRETE';
-            } else {
                 document.documentElement.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'dark');
                 themeBtn.textContent = 'MODE: OBSIDIAN';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeBtn.textContent = 'MODE: CONCRETE';
             }
         });
 
-        // Demo Toggle Logic
-        const demoBtn = document.getElementById('demoToggle');
-        demoBtn.addEventListener('click', () => {
+        // Analog Toggle Logic
+        const analogBtn = document.getElementById('analogToggle');
+        const currentAnalog = localStorage.getItem('analog');
+
+        if (currentAnalog === 'false') {
+            document.body.setAttribute('data-crt', 'false');
+            analogBtn.textContent = 'ANALOG: OFF';
+        } else {
+            // Default to true
+            document.body.setAttribute('data-crt', 'true');
+            analogBtn.textContent = 'ANALOG: ON';
+        }
+
+        analogBtn.addEventListener('click', () => {
             const isCrt = document.body.getAttribute('data-crt') === 'true';
-            document.body.setAttribute('data-crt', isCrt ? 'false' : 'true');
-            demoBtn.textContent = isCrt ? 'DEMO: OFF' : 'DEMO: ON';
+            if (isCrt) {
+                document.body.setAttribute('data-crt', 'false');
+                localStorage.setItem('analog', 'false');
+                analogBtn.textContent = 'ANALOG: OFF';
+            } else {
+                document.body.setAttribute('data-crt', 'true');
+                localStorage.setItem('analog', 'true');
+                analogBtn.textContent = 'ANALOG: ON';
+            }
         });
 
         // Smooth scrolling for navigation links

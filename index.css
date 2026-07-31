@@ -305,22 +305,23 @@ body, html {
 
 .ray-text {
     font-family: var(--font-head);
+    font-weight: normal;
     text-transform: uppercase;
     line-height: 0.9;
     font-size: 3rem;
     margin: 0 0 1rem 0;
-    background-color: var(--steel);
     background-image: linear-gradient(
         110deg,
-        transparent 15%,
-        transparent 25%,
+        var(--steel) 0%,
+        var(--steel) 30%,
         var(--ray-flash) 45%,
         var(--crimson) 55%,
-        transparent 65%,
-        transparent 85%
+        var(--steel) 70%,
+        var(--steel) 100%
     );
     background-size: 200% auto;
     color: transparent;
+    -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     animation: sweep 4s linear infinite;
@@ -383,11 +384,13 @@ body, html {
 .portrait-container {
     position: relative;
     width: 100%;
-    max-width: 380px;
+    max-width: 500px;
     border: 4px solid var(--steel);
 }
 
 .candidate-image {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: auto;
     display: block;
@@ -396,6 +399,7 @@ body, html {
 
 .sunglass-ray {
     position: absolute;
+    z-index: 1;
     top: 30%;
     left: 0;
     width: 100%;
@@ -418,6 +422,7 @@ body, html {
 
 .nametag {
     position: absolute;
+    z-index: 3;
     bottom: 0;
     right: 0;
     background-color: var(--crimson);
@@ -437,6 +442,7 @@ section {
 
 .section-title {
     font-family: var(--font-head);
+    font-weight: normal;
     font-size: 3rem;
     color: var(--crimson);
     margin: 0 0 2rem 0;
