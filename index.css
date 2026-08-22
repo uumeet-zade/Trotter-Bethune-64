@@ -648,10 +648,11 @@ section {
     background-color: var(--ticket-bg);
     padding: 1rem;
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
-    min-width: 0; /* Prevents grid blowout from large intrinsic images */
+    min-width: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    aspect-ratio: 16 / 9; /* Forces perfectly matched boxes */
 }
 
 .media-item:hover {
@@ -662,19 +663,15 @@ section {
 }
 
 .broadcast-poster {
-    max-width: 100%;
-    max-height: 400px; /* Drastically restrict height so it balances with the 16:9 video */
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     display: block;
-    border: 2px solid var(--steel);
 }
 
 .video-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    border: 2px solid var(--steel);
+    height: 100%;
 }
 
 .video-wrapper iframe {
