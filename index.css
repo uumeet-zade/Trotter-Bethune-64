@@ -465,48 +465,66 @@ section {
     background-color: var(--obsidian);
     display: flex;
     justify-content: center;
+    padding: 6rem 2rem;
 }
 
 .manifesto-content {
-    max-width: 900px;
+    max-width: 1100px; /* Increased from 900px to fit the grid nicely */
     width: 100%;
 }
 
-.manifesto-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.doctrine-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
-.manifesto-list li {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 2rem;
+@media (min-width: 900px) {
+    .doctrine-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.doctrine-item {
+    border: 2px solid var(--steel);
+    background-color: var(--ticket-bg);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.doctrine-item:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 8px 8px 0 var(--crimson);
+    border-color: var(--crimson);
+    cursor: crosshair;
+}
+
+.doctrine-header {
+    background-color: var(--obsidian);
     color: var(--text-light);
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    padding: 1.5rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-top: 4px solid var(--crimson);
+    border-bottom: 2px solid var(--steel);
+    transition: border-top-color 0.1s ease-out;
 }
 
-.manifesto-list li .bullet {
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--crimson);
+.doctrine-item:hover .doctrine-header {
+    border-top-color: var(--text-light);
 }
 
-@media (min-width: 768px) {
-    .manifesto-list li {
-        font-size: 1.75rem;
-    }
-    .manifesto-list li .bullet {
-        top: 14px;
-        width: 16px;
-        height: 16px;
-    }
+.doctrine-body {
+    padding: 2rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
 }
-
 /* Ticket Section */
 .section-ticket {
     background-color: var(--ticket-bg);
@@ -535,6 +553,14 @@ section {
     padding: 2rem;
     position: relative;
     background-color: var(--obsidian);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.dossier:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 8px 8px 0 var(--crimson);
+    border-color: var(--crimson);
+    cursor: crosshair;
 }
 
 .dossier::before {
@@ -546,6 +572,11 @@ section {
     height: 30px;
     border-top: 4px solid var(--crimson);
     border-left: 4px solid var(--crimson);
+    transition: border-color 0.1s ease-out;
+}
+
+.dossier:hover::before {
+    border-color: var(--text-light);
 }
 
 .dossier-header {
@@ -582,6 +613,67 @@ section {
     .dossier-body {
         font-size: 1.125rem;
     }
+}
+
+/* Broadcast Section */
+.section-broadcast {
+    background-color: var(--obsidian);
+    display: flex;
+    justify-content: center;
+    padding: 6rem 2rem;
+    border-bottom: 2px solid var(--steel);
+}
+
+.broadcast-content {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+    .media-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.media-item {
+    border: 4px solid var(--steel);
+    background-color: var(--ticket-bg);
+    padding: 1rem;
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+}
+
+.media-item:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 8px 8px 0 var(--crimson);
+    border-color: var(--crimson);
+    cursor: crosshair;
+}
+
+.broadcast-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid var(--steel);
+}
+
+.video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid var(--steel);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 /* Mobilize Section */
