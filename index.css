@@ -648,6 +648,10 @@ section {
     background-color: var(--ticket-bg);
     padding: 1rem;
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+    min-width: 0; /* Prevents grid blowout from large intrinsic images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .media-item:hover {
@@ -658,8 +662,11 @@ section {
 }
 
 .broadcast-poster {
-    width: 100%;
+    max-width: 100%;
+    max-height: 400px; /* Drastically restrict height so it balances with the 16:9 video */
+    width: auto;
     height: auto;
+    object-fit: contain;
     display: block;
     border: 2px solid var(--steel);
 }
